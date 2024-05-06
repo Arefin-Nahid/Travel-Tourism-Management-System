@@ -5,13 +5,15 @@ DECLARE
 BEGIN
   DBMS_OUTPUT.PUT_LINE('Customer Name: ' || v_customer_name);
 END;
+/
+  
 -- How do you insert a row with a default value for the email column if it is not provided? 
 DECLARE
   v_default_email VARCHAR2(100) := 'noemail@gmail.com';
 BEGIN
   INSERT INTO Customer (customerID, customer_name, email) VALUES (3, 'Alice', v_default_email);
 END;
-
+/
 
 -- How do you use a row type to fetch a customer record and display it?
 
@@ -24,7 +26,7 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE('Customer Name: ' || v_customer_rec.customer_name);
   CLOSE c1;
 END;
-
+/
 
 --How do you create a procedure to update the email address of a customer? 
 
@@ -33,7 +35,7 @@ BEGIN
   UPDATE Customer SET email = p_email WHERE customerID = p_customer_id;
   COMMIT;
 END;
-
+/
 
 -- How do you create a function to get the email of a customer by their ID?
 
@@ -46,7 +48,7 @@ EXCEPTION
   WHEN NO_DATA_FOUND THEN
     RETURN 'No Email Found';
 END;
-
+/
 
 -- How do you create a trigger to log any updates to customer data?
 
@@ -57,7 +59,7 @@ BEGIN
   INSERT INTO CustomerAudit (customerID, change_date, old_email, new_email)
   VALUES (:OLD.customerID, SYSDATE, :OLD.email, :NEW.email);
 END;
-
+/
 
 -- How do you enforce email format checks before inserting or updating an email in the Customer table?
 
@@ -69,7 +71,7 @@ BEGIN
     RAISE_APPLICATION_ERROR(-20001, 'Invalid email format');
   END IF;
 END;
-
+/
 
 -- How do you automatically update the remaining capacity in the Package table when a new booking is made? 
 
@@ -86,7 +88,7 @@ BEGIN
     RAISE_APPLICATION_ERROR(-20002, 'No available capacity');
   END IF;
 END;
-
+/
 
 -- How do you prevent deletion from the Booking table if the booking date is less than 3 days away?
 
@@ -98,3 +100,4 @@ BEGIN
     RAISE_APPLICATION_ERROR(-20003, 'Cannot delete booking within 3 days of the event');
   END IF;
 END;
+/
