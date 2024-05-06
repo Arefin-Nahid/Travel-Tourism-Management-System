@@ -8,7 +8,7 @@ INSERT INTO Customer VALUES (2, 'Smith', '0987654321', 'CD7654321', '456 khulna'
 
 --2. Booking Table
 
-CREATE TABLE Booking ( bookingID NUMBER PRIMARY KEY, customerID NUMBER, date DATE, customer_name VARCHAR2(100), package_cost NUMBER, add_pay NUMBER, FOREIGN KEY (customerID) REFERENCES Customer(customerID) ); 
+CREATE TABLE Booking ( bookingID NUMBER PRIMARY KEY, customerID NUMBER, booking_date DATE, customer_name VARCHAR2(100), package_cost NUMBER, add_pay NUMBER, FOREIGN KEY (customerID) REFERENCES Customer(customerID) ); 
  
 -- Sample Data Insertion
 INSERT INTO Booking VALUES (1, 1, TO_DATE('2024-05-20', 'YYYY-MM-DD'), `Miraz`, 1500, 300);
