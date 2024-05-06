@@ -11,8 +11,8 @@ INSERT INTO Customer VALUES (2, 'Smith', '0987654321', 'CD7654321', '456 khulna'
 CREATE TABLE Booking ( bookingID NUMBER PRIMARY KEY, customerID NUMBER, booking_date DATE, customer_name VARCHAR2(100), package_cost NUMBER, add_pay NUMBER, FOREIGN KEY (customerID) REFERENCES Customer(customerID) ); 
  
 -- Sample Data Insertion
-INSERT INTO Booking VALUES (1, 1, TO_DATE('2024-05-20', 'YYYY-MM-DD'), `Miraz`, 1500, 300);
-INSERT INTO Booking VALUES (2, 2, TO_DATE('2024-05-22', 'YYYY-MM-DD'), `Amit`, 1800, 200); 
+INSERT INTO Booking VALUES (1, 1, TO_DATE('2024-05-20', 'YYYY-MM-DD'), 'Miraz', 1500, 300);
+INSERT INTO Booking VALUES (2, 2, TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'Amit', 1800, 200); 
 
 --3. Package Table
 
@@ -36,4 +36,4 @@ CREATE TABLE Agency ( AgencyID NUMBER PRIMARY KEY, packageID NUMBER, agency_name
 
  -- Sample Data Insertion
 INSERT INTO Agency VALUES (1, 1, 'TravelA', 'Miraz', '0345678902', 'Miraz@travela.com'); 
-INSERT INTO Agency VALUES (2, 2, 'TravelB', `Amit`, '0987654322', 'Amit@travelb.com'); 
+INSERT INTO Agency VALUES (2, 2, 'TravelB', 'Amit', '0987654322', 'Amit@travelb.com'); 
